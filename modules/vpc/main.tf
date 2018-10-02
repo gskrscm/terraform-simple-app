@@ -46,7 +46,7 @@ resource "aws_route_table" "hello_web_rt" {
   }
 }
 
-resource "aws_route_table_association" "a" {
-  subnet_id      = "${aws_subnet.hello_public_subnet.id"
-  route_table_id = "${aws_route_table.web_rt.id}"
+resource "aws_route_table_association" "hello_web_rt_a" {
+  subnet_id      = "${aws_subnet.hello_public_subnet.id}"
+  route_table_id = "${aws_route_table.hello_web_rt.id}"
 }
