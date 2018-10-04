@@ -41,7 +41,9 @@ The terraform scripts to spin up a vpc with two subnets (public and private). An
 
 - We can have route 53 for DNS.
 
-- We can have blue green deployment strategy. 
+- We can have blue green deployment strategy.
+
+- We can have base ami with all required softwares.
 
 ## Monitoring:
 
