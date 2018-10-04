@@ -9,6 +9,7 @@ module "ec2" {
   subnet_private_id         = "${module.vpc.hello_private_subnet_id}"
   userdata_web_filepath     = "${file("../scripts/nginx-init.tpl")}"
   userdata_backend_filepath = "${file("../scripts/nodejs-init.tpl")}"
+  userdata_db_filepath      = "${file("../scripts/mongo-init.tpl")}"
   vpc_id                    = "${module.vpc.hello_vpc_id}"
   key_name                  = "${var.key_name}"
   subnets_list              = "${module.vpc.hello_public_subnet_id}"
