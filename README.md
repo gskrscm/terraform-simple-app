@@ -6,12 +6,12 @@ The terraform scripts to sping a vpc with two subnets (public and private). An a
 
 ### Pre-requists: 
 
-- Install AWS Cli and configure AWS credentials.
+- Install AWS cli and configure AWS credentials.
 - Install terraform.
 
 ### Steps to apply:
 
-- Clone the repo and cd `dev-env` folder.
+- Clone the repository and cd `dev-env` folder.
 - Run `terraform init` to terraform download plugins related provider.
 - Review all varialbles dev-env/vars.tf and update accordingly.
 - Run `terraform plan` and `terraform apply` to spin up the infra.
@@ -31,6 +31,8 @@ The terraform scripts to sping a vpc with two subnets (public and private). An a
 
 - We can store terraform.tfstate file any version control system.
 
+- We can use dynamodb managed service from AWS in place of mongodb.
+
 ## Monitoring:
 
  -Need to know application threshold and minimun requirements from Development.
@@ -42,7 +44,4 @@ The terraform scripts to sping a vpc with two subnets (public and private). An a
 ### Application Monitoring:
 
 - We can have ELK to collect application logs and create meaningful dashboards.
-- We can have nagios or zabix for application monitoring. 
-
-
-
+- We can have nagios or zabix for application monitoring.
