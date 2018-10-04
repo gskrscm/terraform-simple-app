@@ -42,7 +42,6 @@ resource "aws_route_table_association" "hello_web_rt_a" {
   route_table_id = "${aws_route_table.hello_web_rt.id}"
 }
 
-
 resource "aws_subnet" "hello_private_subnet" {
   vpc_id     = "${aws_vpc.hello_vpc.id}"
   cidr_block = "${var.cidr_block_private_subnet}"
@@ -51,9 +50,11 @@ resource "aws_subnet" "hello_private_subnet" {
     Name = "${var.project}_private_subnet"
   }
 }
+
 resource "aws_eip" "nat" {
-  vpc   = true
+  vpc = true
 }
+
 resource "aws_nat_gateway" "gw" {
   allocation_id = "${aws_eip.nat.id}"
   subnet_id     = "${aws_subnet.hello_public_subnet.id}"
@@ -62,6 +63,7 @@ resource "aws_nat_gateway" "gw" {
     Name = "hello_gw_NAT"
   }
 }
+
 resource "aws_route_table" "hello_backend_rt" {
   vpc_id = "${aws_vpc.hello_vpc.id}"
 

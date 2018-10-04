@@ -37,8 +37,9 @@ resource "aws_security_group" "elb-sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    // cidr_blocks = ["0.0.0.0/0"]
-    security_groups = ["${aws_security_group.webservers-sg.id}"]
+    cidr_blocks = ["0.0.0.0/0"]
+
+    //security_groups = ["${aws_security_group.webservers-sg.id}"]
   }
 
   # Outbound Rule
@@ -57,17 +58,21 @@ resource "aws_security_group" "backend-sg" {
 
   # ingress - Inbound Rule
   ingress {
-    from_port   = 1881
-    to_port     = 1881
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port = 1881
+    to_port   = 1881
+    protocol  = "tcp"
+
+    // cidr_blocks = ["0.0.0.0/0"]
+    security_groups = ["${aws_security_group.webservers-sg.id}"]
   }
 
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
+
+    // cidr_blocks = ["0.0.0.0/0"]
+    security_groups = ["${aws_security_group.webservers-sg.id}"]
   }
 
   # Outbound Rule

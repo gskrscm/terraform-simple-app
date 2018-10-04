@@ -1,8 +1,8 @@
 # Create a new load balancer
- resource "aws_elb" "hello_elb" {
-   name    = "hello-webservers-elb"
-   subnets = ["${var.subnets_list}"]
-   security_groups = ["${aws_security_group.elb-sg.id}"]
+resource "aws_elb" "hello_elb" {
+  name            = "hello-webservers-elb"
+  subnets         = ["${var.subnets_list}"]
+  security_groups = ["${aws_security_group.elb-sg.id}"]
 
   # access_logs {
   #   bucket        = "hello_elb"

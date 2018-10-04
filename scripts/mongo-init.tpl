@@ -5,5 +5,5 @@ yum install docker -y
 service docker start
 chkconfig docker on
 sleep 60
-docker pull gskrscm/node
-docker run -itd --name="node-app-1" -p 1881:1881 gskrscm/node
+docker pull mongo
+docker run -itd --name="mongo-db" mongo
