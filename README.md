@@ -1,10 +1,10 @@
 # terraform-simple-app
 
-The terraform scripts to sping a vpc with two subnets (public and private). An angularjs application will sit in public subnet and behing loadbalancer. A  nodejs application and mongodb will sit in private subnet.
+The terraform scripts to spin up a vpc with two subnets (public and private). An instance hosting angularjs application will sit in public subnet and behind loadbalancer. An instance each hosting nodejs application and mongodb will sit in private subnet.
 
 ## Usage: 
 
-### Pre-requists: 
+### Pre-requisite: 
 
 - Install AWS cli and configure AWS credentials.
 - Install terraform.
@@ -19,29 +19,53 @@ The terraform scripts to sping a vpc with two subnets (public and private). An a
 
 ## Enhancements to make it for a Prod Release:
 
-- we can have subnets each Availability Zone's and application will span across AZ's for DR and HA.
+- We can have subnets in each Availability Zone's and application will span across AZ's for DR and HA.
 
-- we can use Auto Scaling Group to manage the load on the loadbalancer.
+- We can use Auto Scaling Group to manage the load on the loadbalancer.
 
-- Manangement VPC can be created with bastion box hosted in it for operation activities.
+- We can have manangement VPC created with bastion box hosted in it for operation activities.
 
 - Public subnet should have only load balancer, and all the ec2 instances should lie in the private subnet for the better security.
 
 - For container orchestration we can use AWS EKS.
 
-- We can store terraform.tfstate file any version control system.
+- We should version control terraform.tfstate file and have CI process (Unit test also) around.
 
 - We can use dynamodb managed service from AWS in place of mongodb.
 
+- We can make more generic terraform modules which can be used for any requirement by variablizing all parameters.
+
+- We need to have Key rotation process for better security.
+
+- We can implement WAF for DDOS protection.
+
+- We can have route 53 for DNS.
+
+- We can have blue green deployment strategy.
+
+- We can have base ami with all required softwares.
+
 ## Monitoring:
 
- -Need to know application threshold and minimun requirements from Development.
+ -Need to know application threshold and minimum requirements from Development team.
 
 ### System Monitoring:
 
-- We can user Cloudwatch for system health monitoring and create lambda functions according for remediations activities. 
+- We can use Cloudwatch for system health monitoring and create lambda functions accordingly for remediations activities.
 
 ### Application Monitoring:
 
 - We can have ELK to collect application logs and create meaningful dashboards.
 - We can have nagios or zabix for application monitoring.
+
+
+
+# Tools Selection: 
+
+## Terraform: 
+
+As terraform will help IAS and Platform agnostinc.
+As terraform declrative folows graph theory.
+As I have experience with terraform, so selected terraform.
+
+
